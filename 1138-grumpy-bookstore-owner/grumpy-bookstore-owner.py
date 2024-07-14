@@ -10,8 +10,8 @@ class Solution:
 
         maxUnsatisfied = 0
 
-        for i, item in enumerate(grumpy):
-            unsatisfied += customers[i]
+        for i, customer in enumerate(customers):
+            unsatisfied += customer
 
             if i >= minutes:
                 unsatisfied -= customers[i - minutes]
