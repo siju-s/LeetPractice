@@ -8,12 +8,12 @@ class Solution:
             if nums[r] == 0:
                 numZeros += 1
 
-            while numZeros > k:
+            if numZeros > k:
                 if nums[l] == 0:
                     numZeros -= 1
-
                 l += 1
-            maxLen = max(maxLen, r - l + 1)
+            if numZeros <= k:
+                maxLen = max(maxLen, r - l + 1)
 
         return maxLen        
 
