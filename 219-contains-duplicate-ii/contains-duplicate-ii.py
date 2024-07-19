@@ -1,22 +1,18 @@
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
-         map = {}
+         res = set()
+         l = 0
 
-         for i, num in enumerate(nums):
-            print("pos is ", i, "num is ", num)
+         for r in range(len(nums)):
+            if r - l > k:
+                res.remove(nums[l])
+                l += 1
 
-            if map.get(num, -1) == -1:
-                map[num] = i
+            if nums[r] in res:
+               return True
 
-            else:
-                pos = map[num]
-                if abs(pos - i) <= k:
-                    return True
-                elif abs(pos - i) > k:
-                     map[num] = i
+            res.add(nums[r])
 
-
-         return False                
-
+         return False  
 
         
